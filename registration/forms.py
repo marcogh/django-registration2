@@ -2,11 +2,12 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import authenticate, forms as auth_forms
 from registration.utils import generate_random_username
+from extima.admin import UserCreationForm
 
 from registration.user import User
 
 
-class RegistrationForm(auth_forms.UserCreationForm):
+class RegistrationForm(UserCreationForm):
     """Extends the standard Django user creation form that supplies a few more
     robust defaults.
 
@@ -25,7 +26,7 @@ class RegistrationForm(auth_forms.UserCreationForm):
 
     class Meta(object):
         model = User
-        fields = ('first_name', 'last_name', 'username', 'email')
+        fields = ('first_name', 'last_name', 'email')
 
     def clean_email(self):
         email = self.cleaned_data.get('email')

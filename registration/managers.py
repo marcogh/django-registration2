@@ -44,7 +44,7 @@ class RegistrationManager(models.Manager):
         salt.
         """
         salt = hashlib.sha1(str(random.random())).hexdigest()[:5]
-        username = user.username
+        username = user.get_username()
 
         if isinstance(username, unicode):
             username = username.encode('utf-8')
