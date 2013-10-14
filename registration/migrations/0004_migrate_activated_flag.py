@@ -32,7 +32,7 @@ class Migration(DataMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
-        'auth.user': {
+        'extima.myuser': {
             'Meta': {'object_name': 'User'},
             'date_joined': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
             'email': ('django.db.models.fields.EmailField', [], {'max_length': '75', 'blank': 'True'}),
@@ -62,8 +62,8 @@ class Migration(DataMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'moderated': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'moderation_time': ('django.db.models.fields.DateTimeField', [], {'null': 'True'}),
-            'moderator': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'moderated_profiles'", 'null': 'True', 'to': "orm['auth.User']"}),
-            'user': ('django.db.models.fields.related.OneToOneField', [], {'related_name': "'registration'", 'unique': 'True', 'to': "orm['auth.User']"}),
+            'moderator': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'moderated_profiles'", 'null': 'True', 'to': "orm['extima.MyUser']"}),
+            'user': ('django.db.models.fields.related.OneToOneField', [], {'related_name': "'registration'", 'unique': 'True', 'to': "orm['extima.MyUser']"}),
             'verified': ('django.db.models.fields.BooleanField', [], {'default': 'False'})
         }
     }
