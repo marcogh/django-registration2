@@ -36,10 +36,12 @@ def verify(request, backend='default', template_name='registration/registration_
         # check to see if moderation for this profile is required and whether or
         # not it is a verified account.
         if backend.moderation_required(request, profile):
+            verified = False
             moderation_required = True
             backend.verify(request, profile, **kwargs)
         else:
             moderation_required = False
+            verified = True
             # attempt to activate this user
             backend.activate(request, profile, **kwargs)
 
